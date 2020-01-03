@@ -5,3 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+10.times do 
+    Blog.create(
+        title: Faker::TvShows::Seinfeld.character,
+        body: Faker::TvShows::Seinfeld.quote
+    )
+end
+
+5.times do
+    Skill.create(
+        title: Faker::Games::Heroes.specialty,
+        percent_utilized: Faker::Number.decimal_part(digits: 2)
+    )
+end
+
+5.times do
+    Portfolio.create(
+        title: Faker::Movies::StarWars.character,
+        subtitle: Faker::Movies::StarWars.specie,
+        body: Faker::Movies::StarWars.quote,
+        main_image: "http://placehold.it/600x400",
+        thumb_image: "http://placehold.it/350x200"
+    )
+end
