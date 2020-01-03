@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   get 'about-me', to:'pages#about'
   get 'pages/contact'
   
-  resources :blogs
+  resources :blogs do
+    member do
+      patch 'toggle_status'
+      put 'toggle_status'
+    end
+  end
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

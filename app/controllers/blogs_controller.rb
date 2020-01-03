@@ -1,10 +1,10 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order(:title)
   end
 
   # GET /blogs/1
@@ -43,6 +43,21 @@ class BlogsController < ApplicationController
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        format.json { render :show, status: :ok, location: @blog }
+      else
+        format.html { render :edit }
+        format.json { render json: @blog.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /blogs/1/toggle_status
+  # PATCH/PUT /blogs/1.json/toggle_status
+  def toggle_status
+    respond_to do |format|
+      puts ()
+      if @blog.update(status: @blog.draft? ? 'published' : 'draft')
+        format.html { redirect_to blogs_url, notice: 'Blog status was successfully updated.' }
         format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit }
