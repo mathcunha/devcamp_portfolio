@@ -8,7 +8,7 @@
   <div>
     <% @portfolios.each do |portfolio| %>
       <div class="content">        
-        <p><%= link_to portfolio.title, portfolio %></p>
+        <p><%= link_to portfolio.title, portfolio_show_path(portfolio) %></p>
         <p><%= portfolio.subtitle %></p>
         <p><%= portfolio.body %></p>
         <%= image_tag portfolio.thumb_image unless portfolio.thumb_image.nil? %>
