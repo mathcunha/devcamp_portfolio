@@ -5,10 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+5.times do
+    Topic.create(
+        title: Faker::Games::Heroes.specialty
+    )
+end
+
 10.times do 
     Blog.create(
         title: Faker::TvShows::Seinfeld.character,
-        body: Faker::TvShows::Seinfeld.quote
+        body: Faker::TvShows::Seinfeld.quote,
+        topic_id: Faker::Number.between(from: 1, to: 3)
+    )
+end
+
+3.times do
+    Topic.create(
+        title: Faker::Games::Heroes.specialty
     )
 end
 
