@@ -5,3 +5,8 @@
 <p> <%= @portfolio.title%> </p>
 
 <%= image_tag @portfolio.main_image unless @portfolio.main_image.nil? %>
+
+<h2>Technologies Used:</h2>
+<% @portfolio.technologies.each do |tech| %>
+    <p><%=tech.name%> </p>
+<%end%>
