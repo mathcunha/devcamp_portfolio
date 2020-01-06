@@ -15,8 +15,9 @@ end
 10.times do 
     Blog.create(
         title: Faker::TvShows::Seinfeld.character,
-        body: Faker::TvShows::Seinfeld.quote,
-        topic_id: Faker::Number.between(from: 1, to: 3)
+        body: Faker::Hipster.paragraph,
+        topic_id: Faker::Number.between(from: 1, to: 3),
+        status: Faker::Number.between(from: 0, to: 1)
     )
 end
 

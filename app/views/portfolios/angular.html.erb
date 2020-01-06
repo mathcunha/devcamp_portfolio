@@ -1,0 +1,22 @@
+<h2>Portfolios</h2>
+
+<p id="notice"><%= notice %></p>
+<%= link_to 'Create a new Portfolio', new_portfolio_path %>
+<hr/>
+
+
+  <div>
+    <% @portfolios.each do |portfolio| %>
+      <div class="content">        
+        <p><%= link_to portfolio.title, portfolio_show_path(portfolio) %></p>
+        <p><%= portfolio.subtitle %></p>
+        <p><%= portfolio.body %></p>
+        <%= image_tag portfolio.thumb_image unless portfolio.thumb_image.nil? %>
+        <%= link_to 'Edit', edit_portfolio_path(portfolio) %>
+        <%= link_to 'Delete', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  </div>
+
+
+<br>

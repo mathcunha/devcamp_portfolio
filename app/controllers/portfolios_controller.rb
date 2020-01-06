@@ -5,6 +5,10 @@ class PortfoliosController < ApplicationController
     @portfolios = Portfolio.all.order(:id)
   end
 
+  def angular
+    @portfolios = Portfolio.dathomirian
+  end
+
   def new
     @portfolio = Portfolio.new
   end  
