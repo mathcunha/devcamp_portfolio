@@ -47,6 +47,6 @@ end
 6.times do
   Technology.create(
     name: Faker::ProgrammingLanguage.name,
-    portfolio_id: Faker::Number.between(from: 0, to: 1)
+    portfolio_id: Faker::Number.between(from: 1, to: 3)
   )
 end
