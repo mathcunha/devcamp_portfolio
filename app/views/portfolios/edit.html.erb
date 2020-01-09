@@ -1,3 +1,6 @@
 <h1>Edit this Portfolio Item</h1>
 
 <%= render 'form', portfolio: @portfolio %>
+
+<%= link_to 'Show', portfolio_show_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>
