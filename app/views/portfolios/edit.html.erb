@@ -1,23 +1,6 @@
 <h1>Edit this Portfolio Item</h1>
-<%= form_for(@portfolio) do |f|%>
 
-    <div class="field">
-        <%= f.label :title%>
-        <%= f.text_field :title%>
-    </div>
+<%= render 'form', portfolio: @portfolio %>
 
-    <div class="field">
-        <%= f.label :subtitle%>
-        <%= f.text_field :subtitle%>
-    </div>
-
-    <div class="field">
-        <%= f.label :body%>
-        <%= f.text_field :body%>
-    </div>
-
-    <div class="actions">
-        <%= f.submit%>
-    </div>
-
-<% end %>
+<%= link_to 'Show', portfolio_show_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>
