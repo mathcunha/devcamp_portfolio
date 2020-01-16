@@ -30,6 +30,8 @@ gem 'friendly_id', '~> 5.2.4'
 # Authentication
 gem 'devise', '~> 4.2'
 
+gem 'bootstrap', '~> 4.4', '>= 4.4.1'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
