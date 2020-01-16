@@ -68,6 +68,7 @@ GEM
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.0.1)
+    cancancan (3.0.1)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
     devise (4.7.1)
@@ -205,6 +206,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.4, >= 4.4.1)
   byebug
+  cancancan (~> 3.0, >= 3.0.1)
   devise (~> 4.2)
   faker
   friendly_id (~> 5.2.4)
