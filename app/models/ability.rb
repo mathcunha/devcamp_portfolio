@@ -34,6 +34,7 @@ class Ability
     can :read, :all # permissions for every user, even if not logged in
     if user.present?  # additional permissions for logged in users (they can manage their posts)
       can :crud, Portfolio
+      can :crud, Blog, status: 'draft'
     end
   end
 end
