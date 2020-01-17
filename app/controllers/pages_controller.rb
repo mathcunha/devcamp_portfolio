@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  layout "cover"
+  
   def home
     @posts = Blog.all
   end
