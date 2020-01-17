@@ -43,6 +43,7 @@ class PortfoliosController < ApplicationController
   end
 
   def update
+    authorize! :crud, @portfolio
     respond_to do |format|
       if @portfolio.update(portfolio_params)
         format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully updated.' }
