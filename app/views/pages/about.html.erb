@@ -1,7 +1,13 @@
-<h1>Pages#about</h1>
-<p>Find me in app/views/pages/about.html.erb</p>
-<div>
-<!-- Button trigger modal -->
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <%= render 'shared/menu'%>
+
+    <main role="main" class="inner cover">
+    <h1 class="cover-heading">Cover your page.</h1>
+    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <p class="lead">
+        <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+    </p>
+    <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
 </button>
@@ -26,6 +32,7 @@
     </div>
   </div>
 </div>
-</div>
-<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+    </main>
+
+    <%= render 'shared/footer'%>
 </div>
