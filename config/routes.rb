@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       patch 'toggle_status'
       put 'toggle_status'
     end
+    collection do
+      get 'topic/:title', to:'blogs#topic', as: 'topic'
+    end
   end
 
   root to: 'pages#home'

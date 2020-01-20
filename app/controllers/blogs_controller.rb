@@ -7,11 +7,23 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @blogs = Blog.all.order(:title)
+    @topics = Topic.limit(12)
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+  end
+
+  # GET /blogs/topic
+  # GET /blogs/topic.json
+  def topic
+    @blogs = Blog.joins(:topic).where('topics.title' => params[:title])
+    @topics = Topic.limit(12)
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render :index, status: :ok, location: @blogs }
+    end
   end
 
   # GET /blogs/new
