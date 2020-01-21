@@ -24,7 +24,7 @@ class BlogsController < ApplicationController
     @topics = Topic.limit(12)
     respond_to do |format|
       format.html { render :index }
-      format.json { render :index, status: :ok, location: @blogs }
+      format.json { render json: @blogs, status: :ok }      
     end
   end
 
