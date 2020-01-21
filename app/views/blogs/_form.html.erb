@@ -1,27 +1,53 @@
-<%= form_with(model: blog, local: true) do |form| %>
-  <% if blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+<main role="main" class="container">
+<div class="row">
+  <div class="col-md-8 blog-main">
+    <h3 class="pb-3 mb-4 font-italic border-bottom">
+      From the Firehose
+    </h3>
 
-      <ul>
-        <% blog.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <div class="blog-post">
+    <%= form_with(model: blog, local: true) do |form| %>
+      <% if blog.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+    
+          <ul>
+            <% blog.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control'%>
+      </div>
+    
+      <div class="form-group">
+        <%= form.label :body %>
+        <%= form.text_area :body, class: 'form-control', rows:10 %>
+      </div>
+    
+      <div class="blog-pagination">
+        <%= form.submit "Update" , class: "btn btn-outline-primary"%> 
+      </div>
+    <% end %>
+    </div><!-- /.blog-post -->
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
+    
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <nav class="blog-pagination">
+      <a class="btn btn-outline-primary" href="#">Older</a>
+      <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+    </nav>
+
+  </div><!-- /.blog-main -->
+
+  <%= render 'sidebar'%>
+
+</div><!-- /.row -->
+
+</main><!-- /.container -->

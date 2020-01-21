@@ -6,12 +6,26 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all.order(:title)
+    @blogs = Blog.all.includes(:topic).order(:title).page params[:page]
+    @topics = Topic.limit(12)
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @blogs = Blog.limit(4).includes(:topic).order(:title)
+    @topics = Topic.limit(12)
+  end
+
+  # GET /blogs/topic
+  # GET /blogs/topic.json
+  def topic
+    @blogs = Blog.joins(:topic).where('topics.title' => params[:title]).page params[:page]
+    @topics = Topic.limit(12)
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @blogs, status: :ok }      
+    end
   end
 
   # GET /blogs/new
@@ -21,6 +35,8 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
+    @blogs = Blog.limit(4).includes(:topic).order(:title)
+    @topics = Topic.limit(12)
   end
 
   # POST /blogs
@@ -47,6 +63,8 @@ class BlogsController < ApplicationController
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
         format.json { render :show, status: :ok, location: @blog }
       else
+        @blogs = Blog.limit(4).includes(:topic).order(:title)
+        @topics = Topic.limit(12)
         format.html { render :edit }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end

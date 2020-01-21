@@ -1,10 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<% if current_user%>
-<p><%= link_to current_user.name, edit_user_registration_path%> - <%= link_to "Logout", destroy_user_session_path, method: :delete%></p>
-<% else %>
-<p><%= link_to "Login", new_user_session_path %></p>
-<%end%>
-
-<%= @posts.inspect %>
+    <main role="main" class="inner cover">
+    <h1 class="cover-heading">Cover your page.</h1>
+    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <p class="lead">
+        <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+    </p>
+    </main>

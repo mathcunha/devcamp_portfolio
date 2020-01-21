@@ -1,23 +1,29 @@
-<p id="notice"><%= notice %></p>
+      <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">
+            From the Firehose
+          </h3>
 
-<h1>Blogs</h1>
+          <% @blogs.each do |blog| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Date</th>
-      <th>Body</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <div class="blog-post">
+            <h2 class="blog-post-title"><%=blog.title%></h2>
+            <p class="blog-post-meta"><%=blog.updated_at.to_formatted_s(:long)%> by <%= link_to blog.status, blog %></p>
 
-  <tbody>
-    <%= render @blogs %>
-  </tbody>
-</table>
+            <p><%=blog.body%></p>
+          </div><!-- /.blog-post -->
 
-<br>
+          <%end%>
 
-<%= link_to 'New Blog', new_blog_path %>
+          <nav class="blog-pagination">            
+            <%= paginate @blogs %>
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+        <%= render 'sidebar'%>
+
+      </div><!-- /.row -->
+
+    </main><!-- /.container -->

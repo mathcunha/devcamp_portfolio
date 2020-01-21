@@ -1,12 +1,24 @@
-<h1> <%= @portfolio.title%> </h1>
+<main role="main">
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <%= image_tag @portfolio.main_image unless @portfolio.main_image.nil? %>
+        </div>
+        <div class="col-md-4">
+          <h1> <%= @portfolio.title%> </h1>
 
-<em> <%= @portfolio.subtitle%> </em>
+          <em> <%= @portfolio.subtitle%> </em>
 
-<p> <%= @portfolio.title%> </p>
+          <p> <%= @portfolio.title%> </p>
 
-<%= image_tag @portfolio.main_image unless @portfolio.main_image.nil? %>
-
-<h2>Technologies Used:</h2>
-<% @portfolio.technologies.each do |tech| %>
-    <p><%=tech.name%> </p>
-<%end%>
+          <h2>Technologies Used:</h2>
+          <% @portfolio.technologies.each do |tech| %>
+              <p><%=tech.name%> </p>
+          <%end%>
+          <%= link_to 'Back to Portifolios', portfolios_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
