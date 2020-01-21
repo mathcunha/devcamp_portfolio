@@ -6,7 +6,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all.includes(:topic).order(:title)
+    @blogs = Blog.all.includes(:topic).order(:title).page params[:page]
     @topics = Topic.limit(12)
   end
 
@@ -20,7 +20,7 @@ class BlogsController < ApplicationController
   # GET /blogs/topic
   # GET /blogs/topic.json
   def topic
-    @blogs = Blog.joins(:topic).where('topics.title' => params[:title])
+    @blogs = Blog.joins(:topic).where('topics.title' => params[:title]).page params[:page]
     @topics = Topic.limit(12)
     respond_to do |format|
       format.html { render :index }
