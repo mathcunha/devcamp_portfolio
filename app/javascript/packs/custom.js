@@ -4,3 +4,7 @@ $(function() {
 $(function() {
   $('[data-toggle="popover"]').popover();
 });
+
+$(document).ready(function() {
+  $(".sortable").sortable();
+});
