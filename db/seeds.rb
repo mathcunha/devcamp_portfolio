@@ -39,6 +39,7 @@ end
     title: Faker::Movies::StarWars.character,
     subtitle: Faker::Movies::StarWars.specie,
     body: Faker::Movies::StarWars.quote,
+    position: Faker::Number.between(from: 1, to: 10),
     main_image: "http://placehold.it/600x400",
     thumb_image: "http://placehold.it/350x200"
   )
