@@ -10,6 +10,16 @@ class PortfoliosController < ApplicationController
     @portfolios = Portfolio.dathomirian
   end
 
+  def sort
+    params[:order].each do |key, value|
+      Portfolio.find(key[:data][:id]).update(position: key[:data][:position])
+    end
+
+    respond_to do |format|
+      format.json { head :ok}
+    end
+  end
+
   def new
     @portfolio = Portfolio.new
     3.times {@portfolio.technologies.build}
