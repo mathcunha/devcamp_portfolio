@@ -19,7 +19,6 @@ default: &default
   encoding: unicode
   username: postgres
   password: example
-  host: 192.168.33.10
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -41,6 +40,7 @@ development:
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
   #host: localhost
+  host: 192.168.33.10
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
@@ -61,6 +61,7 @@ development:
 test:
   <<: *default
   database: devcamp_portfolio_test
+  host: 192.168.33.10
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
