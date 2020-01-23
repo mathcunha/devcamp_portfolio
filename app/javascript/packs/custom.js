@@ -22,9 +22,6 @@ $(document).ready(function() {
       data: JSON.stringify({ order: pusharray }),
       contentType: "application/json; charset=utf-8"
     }).fail(function(jqXHR, textStatus, errorThrown) {
-      console.log(errorThrown);
-      console.log(textStatus);
-      console.log(jqXHR);
       $(".modal-body").text(jqXHR.responseText);
       $("#exampleModal").modal("show");
     });
