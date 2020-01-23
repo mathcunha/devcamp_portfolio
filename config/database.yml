@@ -83,7 +83,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: devcamp_portfolio_production
-  username: devcamp_portfolio
-  password: <%= ENV['DEVCAMP_PORTFOLIO_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
+  #<<: *default
+  #database: devcamp_portfolio_production
+  #username: devcamp_portfolio
+  #password: <%= ENV['DEVCAMP_PORTFOLIO_DATABASE_PASSWORD'] %>
