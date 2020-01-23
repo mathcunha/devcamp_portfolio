@@ -15,13 +15,18 @@ $(document).ready(function() {
         data: { id: $(this).attr("data-id"), position: ++pos }
       });
     });
-    console.log(pusharray);
+    //console.log(pusharray);
     $.ajax({
       type: "PUT",
       url: "/portfolios/sort",
       data: JSON.stringify({ order: pusharray }),
-      contentType: "application/json; charset=utf-8",
-      dataType: "json"
+      contentType: "application/json; charset=utf-8"
+    }).fail(function(jqXHR, textStatus, errorThrown) {
+      console.log(errorThrown);
+      console.log(textStatus);
+      console.log(jqXHR);
+      $(".modal-body").text(jqXHR.responseText);
+      $("#exampleModal").modal("show");
     });
   });
 });

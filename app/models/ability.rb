@@ -35,6 +35,7 @@ class Ability
     can :topic, Blog
     if user.present?  # additional permissions for logged in users (they can manage their posts)
       can :crud, Portfolio
+      can :sort, Portfolio
       can :crud, Blog, status: 'draft'
     end
   end

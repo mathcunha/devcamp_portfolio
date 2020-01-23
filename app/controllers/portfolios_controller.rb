@@ -1,6 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
   layout "portfolio"
+  load_and_authorize_resource
 
   def index
     @portfolios = Portfolio.all.order(position: :desc)
@@ -16,7 +17,7 @@ class PortfoliosController < ApplicationController
     end
 
     respond_to do |format|
-      format.json { head :ok}
+      format.json { render json: Portfolio.new, status: :ok}
     end
   end
 
@@ -54,7 +55,6 @@ class PortfoliosController < ApplicationController
   end
 
   def update
-    authorize! :crud, @portfolio
     respond_to do |format|
       if @portfolio.update(portfolio_params)
         format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully updated.' }
