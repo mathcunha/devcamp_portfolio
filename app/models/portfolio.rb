@@ -5,6 +5,9 @@ class Portfolio < ApplicationRecord
   include Placeholder
   validates_presence_of :title, :subtitle, :body
 
+  mount_uploader :main_image, PortfolioUploader
+  mount_uploader :thumb_image, PortfolioUploader
+
   def self.angular
     where.(subtitle: 'angular')
   end
