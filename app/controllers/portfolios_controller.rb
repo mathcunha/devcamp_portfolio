@@ -4,7 +4,7 @@ class PortfoliosController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @portfolios = Portfolio.all.order(position: :desc)
+    @portfolios = Portfolio.all.order(position: :asc)
   end
 
   def angular
@@ -73,6 +73,6 @@ class PortfoliosController < ApplicationController
   
     # Never trust parameters from the scary internet, only allow the white list through.
     def portfolio_params
-      params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes:[:name])
+      params.require(:portfolio).permit(:title, :subtitle, :body, :main_image, :thumb_image, technologies_attributes:[:name])
     end
 end

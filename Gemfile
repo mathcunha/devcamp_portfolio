@@ -42,6 +42,12 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# images
+gem 'carrierwave', '~> 2.0', '>= 2.0.2'
+gem 'carrierwave-aws', '~> 1.4'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
