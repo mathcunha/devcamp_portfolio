@@ -14,6 +14,12 @@ blocks:
           value: test
         - name: S3_BUCKET
           value: BAR_3
+        - name: ACCESS_KEY
+          value: BAR_4
+        - name: SECRET_KEY
+          value: BAR_5
+        - name: AWS_REGION
+          value: BAR_6
       jobs:
         - name: Test
           commands:
