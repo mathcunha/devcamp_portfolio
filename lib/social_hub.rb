@@ -9,7 +9,7 @@ module SocialHub
     "hello, elaine!"
   end
   def self.load_data
-    @client.search("#rubyonrails", result_type: 'recent').take(3).collect do |tweet|
+    @client.search("#rails", result_type: 'recent').take(3).collect do |tweet|
       "#{tweet.user.screen_name}: #{tweet.text}"
     end
   end

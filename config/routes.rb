@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'angular-items', to:'portfolios#angular'
   
   get 'about-me', to:'pages#about'
+  get 'tech-news', to:'pages#tech_news'
   get 'pages/contact'
 
   
