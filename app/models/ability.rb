@@ -37,6 +37,7 @@ class Ability
       can :crud, Portfolio
       can :sort, Portfolio
       can :crud, Blog, status: 'draft'
+      can :create, Comment
     end
   end
 end
