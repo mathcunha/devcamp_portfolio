@@ -14,8 +14,11 @@
       <p><%=@blog.body%></p>
       <p><%= link_to 'Edit', edit_blog_path(@blog) %></p>
     </div><!-- /.blog-post -->
+    <% if user_signed_in? %>
+      <%= render 'form-comment', comment: @comment%>
+    <% end %>
 
-    
+    <%= render 'show-comment', comments: @blog.comments%>
 
     <nav class="blog-pagination">
       <a class="btn btn-outline-primary" href="#">Older</a>

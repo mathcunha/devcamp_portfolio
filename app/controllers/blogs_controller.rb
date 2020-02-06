@@ -15,6 +15,7 @@ class BlogsController < ApplicationController
   def show
     @blogs = Blog.limit(4).includes(:topic).order(:title)
     @topics = Topic.limit(12)
+    @comment = Comment.new(blog_id: @blog.id)
   end
 
   # GET /blogs/topic

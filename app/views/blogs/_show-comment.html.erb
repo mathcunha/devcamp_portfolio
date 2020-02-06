@@ -1,0 +1,14 @@
+    <%comments.each do |comment|%>
+    <div class="comment-card">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-1 blog-main">
+            <%=comment.user.name%>            
+          </div>
+          <div class="col-md-11 blog-main">
+            <%=comment.content%>
+          </div>          
+        </div>
+      </div>
+    </div>
+    <%end%>
